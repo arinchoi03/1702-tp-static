@@ -3,11 +3,11 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var nunjucks = require('nunjucks')
-var db = require('./models').db;
-var Place = require('./models').Place;
-var Activity = require('./models').Activity;
-var Hotel = require('./models').Hotel;
-var Restaurant = require('./models').Restaurant
+var db = require('./models');
+// var Place = require('./models').Place;
+// var Activity = require('./models').Activity;
+// var Hotel = require('./models').Hotel;
+// var Restaurant = require('./models').Restaurant
 
 
 
@@ -36,10 +36,12 @@ app.use(function(err, req, res, next) {
 	res.send(err, err.stack) //res.render('error')
 })
 
-db.sync({force: true})
-	.then(function() {
-		app.listen(3000, function(){
-			console.log('Listening on 3000')
-		}
-	)}
-)
+// db.sync({force: true})
+// 	.then(function() {
+// 		app.listen(3000, function(){
+// 			console.log('Listening on 3000')
+// 		}
+// 	)}
+// )
+
+app.listen(3000, function() { console.log('Listening on 3000')})

@@ -1,4 +1,5 @@
-var db = require('./index.js')
+var Sequelize = require('sequelize')
+var db = require('./_db.js')
 
 var hotelModel = {
   name: {
@@ -18,6 +19,5 @@ var hotelModel = {
 }
 
 var Hotel = db.define('hotel', hotelModel)
-
 
 module.exports = Hotel;

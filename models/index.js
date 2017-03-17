@@ -1,14 +1,11 @@
-var Sequelize = require('sequelize');
-var db = new Sequelize('postgres://localhost:5432/tripplanner', {
-  logging: false
-})
-var Place = ('./place.js')
-var Hotel = ('./hotel.js')
-var Activity = ('./activity.js')
-var Restaurant = ('./restaurant.js')
+var db = require('./_db.js')
+var Place = require('./place.js')
+var Hotel = require('./hotel.js')
+var Activity = require('./activity.js')
+var Restaurant = require('./restaurant.js')
 
 Hotel.belongsTo(Place);
 Restaurant.belongsTo(Place);
-Activity.belongsTo(Place)
+Activity.belongsTo(Place);
 
 module.exports = db;

@@ -1,4 +1,5 @@
-var db = require('./index.js')
+var Sequelize = require('sequelize')
+var db = require('./_db.js')
 
 var activityModel = {
   name: {
