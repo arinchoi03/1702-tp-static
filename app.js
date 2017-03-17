@@ -4,16 +4,16 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var nunjucks = require('nunjucks')
 var db = require('./models');
-// var Place = require('./models').Place;
-// var Activity = require('./models').Activity;
-// var Hotel = require('./models').Hotel;
-// var Restaurant = require('./models').Restaurant
+var routes = require('./routes')
+
 
 
 
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
@@ -26,6 +26,9 @@ var env = nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');
 // when res.render works with html files, have it use nunjucks to do so
 app.engine('html', nunjucks.render);
+
+app.use(routes)
+
 
 
 
