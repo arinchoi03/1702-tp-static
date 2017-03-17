@@ -6,13 +6,10 @@ var Hotel = require('.././models').Hotel
 var Activity = require('.././models').Activity
 var Restaurant = require('../models').Restaurant
 
-
-
-
 router.get('/', function(req, res, next) {
     var infoList = {}
-    Promise.all([Hotel.findAll(), 
-    Restaurant.findAll(), 
+    Promise.all([Hotel.findAll(),
+    Restaurant.findAll(),
     Activity.findAll()])
         .spread(function(hotelPromise, restPromise, actPromise) {
             res.render('index', {
