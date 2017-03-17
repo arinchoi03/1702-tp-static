@@ -1,7 +1,16 @@
 .planning-modules {
+  &:first-child {
+    margin-bottom: 5%;
+  }
   background-color: powderblue;
+  padding: 5%;
+  border-radius: 10%
 }
 
 #map-canvas {
-  height: 700px;
+  height: 600px;
+}
+
+option {
+  width: __;
 }
